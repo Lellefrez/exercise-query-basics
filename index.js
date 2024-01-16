@@ -5,7 +5,7 @@ const { MONGO_URI } = process.env
 import mongoose from "mongoose";
 import cors from "cors";
 import morgan from "morgan";
-
+import booksRouter from "./routes/booksRoutes.js"
 const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
@@ -19,3 +19,5 @@ mongoose.connect(MONGO_URI)
         })
     })
     .catch(err => console.log(err))
+
+app.use('/books', booksRouter)

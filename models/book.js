@@ -1,9 +1,9 @@
-import mongoose, { SchemaType } from "mongoose";
+import mongoose from "mongoose";
 const { Schema, SchemaType, model } = mongoose;
 
-const bbookSchema = new Schema({
+const bookSchema = new Schema({
     author: {
-        type: SchemaType.ObjectID(),
+        type: String,
         required: true
     },
     title: {
@@ -11,10 +11,12 @@ const bbookSchema = new Schema({
         required: true
     },
     year: {
-        type: Date,
+        type: Number,
         required: true
     }
 })
 
 const Book = model('Book', bookSchema)
 export default Book
+
+//SchemaType.ObjectID()
